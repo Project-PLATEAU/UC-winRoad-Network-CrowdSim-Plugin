@@ -1,0 +1,177 @@
+package F8CrowdSimPlugin;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+requires
+  inet,
+  rtl,
+  vcl,
+  vclx,
+  vclactnband,
+  vclSmp,
+  xmlrtl,
+  IndyCore,
+  IndyProtocols,
+  IndySystem,
+  F8Core,
+  F8PluginControls,
+  F8PluginCore,
+  F8SAX,
+  Forum8,
+  GR32_RSXE2,
+  UFbxPackage,
+  tee,
+  vcldb;
+
+contains
+  F8CrowdSimPluginMain in 'F8CrowdSimPluginMain.pas',
+  AgentSettings in 'PeopleFlowSimulation\Menge\MengeUtils\AgentSettings.pas',
+  MapRenderer in 'PeopleFlowSimulation\PedestrianMap\MapRenderer.pas',
+  PedestrianCell in 'PeopleFlowSimulation\PedestrianMap\PedestrianCell.pas',
+  PedestrianCellGroup in 'PeopleFlowSimulation\PedestrianMap\PedestrianCellGroup.pas',
+  PedestrianCellGroup_Area in 'PeopleFlowSimulation\PedestrianMap\PedestrianCellGroup_Area.pas',
+  PedestrianCellGroup_CrossWalk in 'PeopleFlowSimulation\PedestrianMap\PedestrianCellGroup_CrossWalk.pas',
+  PedestrianMap in 'PeopleFlowSimulation\PedestrianMap\PedestrianMap.pas',
+  PedestrianMapEditingGuide in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapEditingGuide.pas',
+  PedestrianMapEditor in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapEditor.pas',
+  PedestrianMapGenerator in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapGenerator.pas',
+  PedestrianMapList in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapList.pas',
+  PedestrianMapPlaneRenderer in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapPlaneRenderer.pas',
+  PedestrianMapUnificator in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUnificator.pas',
+  PedestrianMapUser in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUser.pas',
+  CrowdSimUtils in 'PeopleFlowSimulation\CrowdSimUtils.pas',
+  ContourDrawerForm in 'PeopleFlowAnalysis\Contour\ContourDrawerForm.pas' {FormDrawContour},
+  ContourGenerator in 'PeopleFlowAnalysis\Contour\ContourGenerator.pas',
+  HeatMapDrawerForm in 'PeopleFlowAnalysis\HeatMap\HeatMapDrawerForm.pas' {FormDrawHeatMap},
+  HeatMapGenerator in 'PeopleFlowAnalysis\HeatMap\HeatMapGenerator.pas',
+  F8CrowdSimController in 'PlayerForm\F8CrowdSimController.pas',
+  TrafficArea in 'Importer\CityGML\TrafficArea.pas',
+  TranRoad in 'Importer\CityGML\TranRoad.pas',
+  TranRoadList in 'Importer\CityGML\TranRoadList.pas',
+  XMLPointType in 'Importer\CityGML\XMLPointType.pas',
+  MFJsonExportHelper in 'Importer\MFJSON\MFJsonExportHelper.pas',
+  MFJsonExportUtils in 'Importer\MFJSON\MFJsonExportUtils.pas',
+  MFJsonLoader in 'Importer\MFJSON\MFJsonLoader.pas',
+  MFJsonLoaderOptions in 'Importer\MFJSON\MFJsonLoaderOptions.pas',
+  MovingFeature in 'Importer\MFJSON\MovingFeature.pas',
+  TemporalProperty in 'Importer\MFJSON\TemporalProperty.pas',
+  SensorDataLoaderSettingForm in 'Importer\TrafficSensor\SensorDataLoaderSettingForm.pas' {FormSensorDataLoaderSetting},
+  TrafficSensor in 'Importer\TrafficSensor\TrafficSensor.pas',
+  TrafficSensorDat in 'Importer\TrafficSensor\TrafficSensorDat.pas',
+  TrafficSensorLoader in 'Importer\TrafficSensor\TrafficSensorLoader.pas',
+  F_TimeController in 'PlayerForm\PlayerFormFrame\F_TimeController.pas' {FrameControlTime: TFrame},
+  CrowdSimPlayerForm in 'PlayerForm\CrowdSimPlayerForm.pas' {FormCrowdSimPlayer},
+  CrowdSimExportsForm in 'PeopleFlowAnalysis\ExportsForm\CrowdSimExportsForm.pas' {FormCrowdSimExports},
+  F_ContourSettings in 'PeopleFlowAnalysis\ExportsForm\F_ContourSettings.pas' {FrameContourSettings: TFrame},
+  F_CrossSectionGraph in 'PeopleFlowAnalysis\ExportsForm\F_CrossSectionGraph.pas' {FrameCrossSectionGraph: TFrame},
+  F_HeatMapSettings in 'PeopleFlowAnalysis\ExportsForm\F_HeatMapSettings.pas' {FrameHeatMapSettings: TFrame},
+  CellID in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\CellID.pas',
+  LatLonHelper in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\LatLonHelper.pas',
+  MapOrigin in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\MapOrigin.pas',
+  ParametricLine2DHelper in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\ParametricLine2DHelper.pas',
+  PedestrianUtil in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\PedestrianUtil.pas',
+  CrowdSimSidePanel in 'PlayerForm\SidePanel\CrowdSimSidePanel.pas',
+  CrowdSimSidePanelBaseFrame in 'PlayerForm\SidePanel\CrowdSimSidePanelBaseFrame.pas' {FrameCrowdSimSidePanel: TFrame},
+  F_AgentAttributes in 'SimulationInput\F_AgentAttributes.pas' {FrameAgentAttributes: TFrame},
+  F_CreateSimulationArea in 'SimulationInput\F_CreateSimulationArea.pas' {FrameCreateSimulationArea: TFrame},
+  F_CrossSectionSettings in 'SimulationInput\F_CrossSectionSettings.pas' {FrameCrossSectionSettings: TFrame},
+  F_CrossWalkSettings in 'SimulationInput\F_CrossWalkSettings.pas' {FrameCrossWalkSettings: TFrame},
+  F_ExitInterval in 'SimulationInput\F_ExitInterval.pas' {FrameExitInterval: TFrame},
+  F_MainInput in 'SimulationInput\F_MainInput.pas' {FrameMainInput: TFrame},
+  F_WaitingAreaSettings in 'SimulationInput\F_WaitingAreaSettings.pas' {FrameWaitingAreaSettings: TFrame},
+  F_CrossWalkSettingsSidePanel in 'PlayerForm\SidePanel\F_CrossWalkSettingsSidePanel.pas' {FrameCrossWalkSettingsSidePanel: TFrame},
+  F_PedestrianPopOutSidePanel in 'PlayerForm\SidePanel\F_PedestrianPopOutSidePanel.pas' {FramePedestrianPopOutSidePanel: TFrame},
+  F_SimAreaSettingsSidePanel in 'PlayerForm\SidePanel\F_SimAreaSettingsSidePanel.pas' {FrameSimAreaSettingsSidePanel: TFrame},
+  F_WaitingQueueSidePanel in 'PlayerForm\SidePanel\F_WaitingQueueSidePanel.pas' {FrameWaitingQueueSidePanel: TFrame},
+  crowdSimBuilding in 'Importer\CityGML\crowdSimBuilding.pas',
+  crowdSimBuilding_InteriorRoom in 'Importer\CityGML\crowdSimBuilding_InteriorRoom.pas',
+  CrosswalkEditingAreaRenderer in 'PeopleFlowSimulation\PedestrianMap\CrosswalkEditingAreaRenderer.pas',
+  WQAreaEditingDialog in 'SimulationInput\Dialog\WQAreaEditingDialog.pas' {FormWQAreaEditingDialog},
+  CrosswalkEditingDialog in 'SimulationInput\Dialog\CrosswalkEditingDialog.pas' {FormCrosswalkEditingDialog},
+  WQAreaRenderer in 'PeopleFlowSimulation\Renderer\WQAreaRenderer.pas',
+  SimulationInputUtils in 'SimulationInput\SimulationInputUtils.pas',
+  F_NameChanger in 'SimulationInput\F_NameChanger.pas' {FormNameChange},
+  WaitingQueueAreaList in 'SimulationInput\Manager\WaitingQueueAreaList.pas',
+  PopOutPointList in 'SimulationInput\Manager\PopOutPointList.pas',
+  F_PopDetailSetting in 'SimulationInput\PedestrianPopOut\F_PopDetailSetting.pas' {FramePopDetailSetting: TFrame},
+  F_PopPerHour in 'SimulationInput\PedestrianPopOut\F_PopPerHour.pas' {FramePedestrianPopPerHour: TFrame},
+  F_PedestrianDetailSettings in 'SimulationInput\PedestrianPopOut\F_PedestrianDetailSettings.pas' {FramePedestrianDetailSettings: TFrame},
+  F_PedestrianOutbyInterval in 'SimulationInput\PedestrianPopOut\F_PedestrianOutbyInterval.pas' {FramePedestrianOutbyInterval: TFrame},
+  F_PedestrianOutPointSettings in 'SimulationInput\PedestrianPopOut\F_PedestrianOutPointSettings.pas' {FramePedestrianOutPointSettings: TFrame},
+  F_PedestrianPopbyInterval in 'SimulationInput\PedestrianPopOut\F_PedestrianPopbyInterval.pas' {FramePedestrianPopbyInterval: TFrame},
+  F_PedestrianPopOutSettings in 'SimulationInput\PedestrianPopOut\F_PedestrianPopOutSettings.pas' {FramePedestrianPopOutSettings: TFrame},
+  F_PedestrianPopPointSettings in 'SimulationInput\PedestrianPopOut\F_PedestrianPopPointSettings.pas' {FramePedestrianPopPointSettings: TFrame},
+  F_ScheduleSettings in 'SimulationInput\PedestrianPopOut\F_ScheduleSettings.pas' {FrameScheduleSettings: TFrame},
+  FormPedDetailSettings in 'SimulationInput\PedestrianPopOut\FormPedDetailSettings.pas' {FormPedestrianDetailSettings},
+  F_ScheduleButton in 'SimulationInput\PedestrianPopOut\F_ScheduleButton.pas' {FrameScheduleButton: TFrame},
+  FormPopDetail in 'SimulationInput\PedestrianPopOut\FormPopDetail.pas' {FormPopDetailSettings},
+  FormScheduleSettings in 'SimulationInput\PedestrianPopOut\FormScheduleSettings.pas' {FormSchedule},
+  PopOutSchedule in 'SimulationInput\Manager\PopOutSchedule.pas',
+  CrowdSimBuildingList in 'Importer\CityGML\CrowdSimBuildingList.pas',
+  PedestrianMovingData in 'PeopleFlowSimulation\PedestrianMovingData.pas',
+  CrosswalkInReplay in 'PeopleFlowSimulation\CrosswalkInReplay.pas',
+  MultiSurface in 'Importer\CityGML\MultiSurface.pas',
+  SurfaceItem in 'Importer\CityGML\SurfaceItem.pas',
+  SurfaceTriangle in 'Importer\CityGML\SurfaceTriangle.pas',
+  SurfaceTriangleGenerator in 'Importer\CityGML\SurfaceTriangleGenerator.pas',
+  F_SelectNodeButton in 'SimulationInput\F_SelectNodeButton.pas' {FrameSelectNodeButton: TFrame},
+  PedestrianSettingsForm in 'SimulationInput\PedestrianSettingsForm.pas' {FormPedestrianSettings},
+  F_PedestrianSettings in 'SimulationInput\F_PedestrianSettings.pas' {FramePedestrianSettings: TFrame},
+  ComboDrawingHelper in 'SimulationInput\ComboDrawingHelper.pas',
+  PedestrianCategoryEditorForm in 'SimulationInput\PedestrianCategoryEditorForm.pas' {FormPedestrianCategoryEditor},
+  F_PedestrianCategoryEditor in 'SimulationInput\F_PedestrianCategoryEditor.pas' {FramePedestrianCategoryEditor: TFrame},
+  PedestrianCategoryData in 'SimulationInput\Manager\PedestrianCategoryData.pas',
+  PedestrianProfileOptionData in 'SimulationInput\Manager\PedestrianProfileOptionData.pas',
+  F_AttributesDistribution in 'SimulationInput\F_AttributesDistribution.pas' {FrameAttributesDistribution: TFrame},
+  FormPedLabelSettings in 'SimulationInput\PedestrianPopOut\FormPedLabelSettings.pas' {FormPedestrianLabelSettings},
+  WalkingRouteAutomaticGenerator in 'WalkingRoute\WalkingRouteAutomaticGenerator.pas',
+  WalkingRoutePlane in 'WalkingRoute\WalkingRoutePlane.pas',
+  WalkingRouteTriangle in 'WalkingRoute\WalkingRouteTriangle.pas',
+  crowdSimBuilding_Floor in 'Importer\CityGML\crowdSimBuilding_Floor.pas',
+  F_CrossSectionLogSettings in 'PlayerForm\PlayerFormFrame\F_CrossSectionLogSettings.pas' {FrameCrossSectionLogSettings: TFrame},
+  F8CrowdSimPluginDataConstant in 'F8CrowdSimPluginDataConstant.pas',
+  CrowdSimLogExport in 'PeopleFlowAnalysis\FlowLog\CrowdSimLogExport.pas',
+  CrowdSimLogSensorAreaRenderer in 'PeopleFlowAnalysis\FlowLog\CrowdSimLogSensorAreaRenderer.pas',
+  CrowdSimLogUtils in 'PeopleFlowAnalysis\FlowLog\CrowdSimLogUtils.pas',
+  WalkingRouteCandidatePath in 'WalkingRoute\WalkingRouteCandidatePath.pas',
+  BusTransportationResultExport in 'PeopleFlowAnalysis\BusTransportation\BusTransportationResultExport.pas',
+  F_BusTransportationGraph in 'PeopleFlowAnalysis\ExportsForm\F_BusTransportationGraph.pas' {FrameBusTransportationGraph: TFrame},
+  crowdSimCityFurniture in 'Importer\CityGML\crowdSimCityFurniture.pas',
+  crowdSimCityFurnitureList in 'Importer\CityGML\crowdSimCityFurnitureList.pas',
+  WaitingQueueAreaRebuilder in 'SimulationInput\Manager\WaitingQueueAreaRebuilder.pas',
+  WaitingQueueResultExport in 'PeopleFlowAnalysis\WaitingQueue\WaitingQueueResultExport.pas',
+  F_WaitingQueueGraph in 'PeopleFlowAnalysis\ExportsForm\F_WaitingQueueGraph.pas' {FrameWaitingQueueGraph: TFrame},
+  ODTripResultExport in 'PeopleFlowAnalysis\ODTrip\ODTripResultExport.pas',
+  F_ODTripGraph in 'PeopleFlowAnalysis\ExportsForm\F_ODTripGraph.pas' {FrameODTripGraph: TFrame},
+  TimeLineSeriesSupport in 'PeopleFlowAnalysis\ExportsForm\TimeLineSeriesSupport.pas',
+  CrowdSimCityGMLImporterModel in 'Importer\CityGML\CrowdSimCityGMLImporterModel.pas';
+
+end.
+
+
