@@ -1,0 +1,695 @@
+{
+  "source_base_path": "D:/mercurial/R7_Plateau/Customize/GitHubPages/F8CrowdSimPlugin/markdown",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/devMan.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/devMan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html"
+        },
+        ".json": {
+          "relative_path": "manual/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/userMan.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/userMan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/CrowdSimulatorPlugin.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/CrowdSimulatorPlugin.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/CrowdSimulatorPlugin1.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/CrowdSimulatorPlugin1.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/CrowdSimulatorPlugin2.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/CrowdSimulatorPlugin2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/CrowdSimulatorPlugin_FullScreen.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/CrowdSimulatorPlugin_FullScreen.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/BuildSettings_FrowdSim.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/BuildSettings_FrowdSim.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/BuildSettings_Plugin.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/BuildSettings_Plugin.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/RoadData_Plugins.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/RoadData_Plugins.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/UCwinRoad_shortcut.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/UCwinRoad_shortcut.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/applicationDefaultForm.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/applicationDefaultForm.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/devMan/delphiProjectOption.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/devMan/delphiProjectOption.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "resources/logo.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/AreaSettings.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/AreaSettings.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/BusTransportGraph.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/BusTransportGraph.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/BusTransportLog.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/BusTransportLog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/BusTransportResult.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/BusTransportResult.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CityGMLLoader.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CityGMLLoader.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrossSectionGraph.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrossSectionGraph.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrossSectionLog.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrossSectionLog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrossSectionResult.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrossSectionResult.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrosswalkAdd.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrosswalkAdd.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrosswalkChange.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrosswalkChange.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrosswalkSettings.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrosswalkSettings.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/CrowdSimulator.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/CrowdSimulator.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/EditTab.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/EditTab.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/HeatMap.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/HeatMap.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/HeatMapGenerator.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/HeatMapGenerator.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/HeatMapResult.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/HeatMapResult.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/LogTab.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/LogTab.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ODTripGraph.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ODTripGraph.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ODTripLog.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ODTripLog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ODTripResult.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ODTripResult.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/OutPointDistribution.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/OutPointDistribution.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/OutputMFJSON.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/OutputMFJSON.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianAttributeButton.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianAttributeButton.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianDetail.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianDetail.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianLabel.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianLabel.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianLabelButton.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianLabelButton.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianNetwork.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianNetwork.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PedestrianSettings.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PedestrianSettings.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopDetail.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopDetail.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSelect01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSelect01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSelect02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSelect02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSelect03.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSelect03.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSettings01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSettings01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSettings02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSettings02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/PopOutSettings03.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/PopOutSettings03.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ResultExporter.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ResultExporter.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ScheduleSetting01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ScheduleSetting01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/ScheduleSetting02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/ScheduleSetting02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/SimulationSetting.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/SimulationSetting.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/SimulationTab.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/SimulationTab.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/UCwinRoadStart.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/UCwinRoadStart.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueAreaSelect.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueAreaSelect.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueCreate01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueCreate01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueCreate02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueCreate02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueGraph.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueGraph.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueLog.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueLog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueNodeSelect.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueNodeSelect.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueResult.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueResult.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueSettings01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueSettings01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueSettings02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueSettings02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/WaitingQueueSettings03.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/WaitingQueueSettings03.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
