@@ -80,7 +80,7 @@
 <h1 id="環境構築手順書">環境構築手順書</h1>
 
 <h2 id="1-本書について">1 本書について</h2>
-<p>本書は、人流シミュレーションプラグイン(UC-win/Roadプラグイン)（以下「本システム」という。）の利用環境構築手順について記載しています。</p>
+<p>本書は、輸送計画検討に向けた人流シミュレーションプラグイン(UC-win/Roadプラグイン)の利用環境構築手順について記載しています。</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>本システムの構成や仕様の詳細については<a href="https://www.mlit.go.jp/plateau/news/">技術検証レポート</a>も参考にしてください。</p>
@@ -103,7 +103,7 @@
 </tr>
 <tr>
 <td>CPU</td>
-<td>IntelCorei5以上</td>
+<td>Intel Core i5 以上</td>
 <td>同左</td>
 </tr>
 <tr>
@@ -136,13 +136,13 @@
 <h2 id="3-インストール手順">3 インストール手順</h2>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>本システムを実行するにはUC-win/Roadが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
+<p>本システムを実行するにはUC-win/Roadのライセンスが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
 <a href="https://www.forum8.co.jp/index.html">フォーラムエイト(HP)</a><br>
 <a href="https://www.forum8.co.jp/tech/tech.htm">フォーラムエイト(サポートページ)</a></p>
 </div>
 <ol>
-<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-CrowdSim-Plugin">GitHubページ</a>からF8CrowdSimPlugin.bplをダウンロードします。</li>
-<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-CrowdSim-Plugin">GitHubページ</a>からソースファイルをダウンロードします。</li>
+<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">GitHubページ</a>からF8CrowdSimPlugin.bplをダウンロードします。</li>
+<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">GitHubページ</a>からソースファイルをダウンロードします。</li>
 <li>WindowsのエクスプローラでUC-win/Roadのデータディレクトリを開きます。
 <div class="TIP">
 <h5>Tip</h5>
@@ -188,10 +188,10 @@ UC-win/Roadを起動して、メイン画面上部の「ファイル」タブ&gt
 </div>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>F8CrowdSimPluginをビルドするにはDelphi 10.4.2が必要です。IDE Patchesは全て適用済みの状態にして下さい。</p>
+<p>F8CrowdSimPluginをビルドするにはDelphi 10.4.2が必要です。IDE Patchesは全て適用済みの状態にして下さい。詳しくは<a href="https://blogs.embarcadero.com/ja/rad-studio-10-4-2patch-general-patchdelphi-compiler-patch-ja/">こちら</a>をご参照ください。</p>
 </div>
 <p>ソースファイルからF8CrowdSimPluginを生成することができます。<br>
-ソースファイルは<a href="https://github.com/Project-PLATEAU/UC-winRoad-CrowdSim-Plugin">こちら</a>からダウンロード可能です。<br>
+ソースファイルは<a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">こちら</a>からダウンロード可能です。<br>
 ダウンロードしたsrcフォルダ内のF8CrowdSimPluginフォルダ内にソースコード一式があります。<br>
 F8CrowdSimPluginフォルダのフォルダ構成は次のようになっています。</p>
 <pre><code class="lang-bash">├─Importer
@@ -263,8 +263,7 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
 </tr>
 </tbody>
 </table>
-<p>本システムでは、3D都市モデルの道路、建物、都市構造物モデルの形状（LOD3、LOD4）を活用します。
-また、歩行エリア編集時の参考情報として建築物の形状も利用しています。</p>
+<p>本システムでは、歩行領域生成・編集において3D都市モデルの道路、建築物、都市構造物モデルの形状（LOD3、LOD4）を活用します。</p>
 <table>
 <thead>
 <tr>

@@ -2,7 +2,7 @@
 
 ## 1 本書について
 
-本書は、人流シミュレーションプラグイン(UC-win/Roadプラグイン)（以下「本システム」という。）の利用環境構築手順について記載しています。
+本書は、輸送計画検討に向けた人流シミュレーションプラグイン(UC-win/Roadプラグイン)の利用環境構築手順について記載しています。
 
 > [!TIP]
 > 本システムの構成や仕様の詳細については[技術検証レポート][TechnicalReport]も参考にしてください。
@@ -14,7 +14,7 @@
 |項目|最小動作環境|推奨動作環境|
 | - | - | - |
 |OS|Microsoft Windows10 / 11(64bit)|同左|
-|CPU|IntelCorei5以上|同左|
+|CPU|Intel Core i5 以上|同左|
 |GPU|NVIDIA製GPU|NVIDIA Geforce GTX1650以上(4GB以上のメモリ)|
 |メモリ|16GB以上|32GB以上|
 |ストレージ|最低30GB以上の空き容量|SSDドライブ<br>最低60GB以上の空き容量|
@@ -24,7 +24,7 @@
 ## 3 インストール手順
 
 > [!Important]
-> 本システムを実行するにはUC-win/Roadが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
+> 本システムを実行するにはUC-win/Roadのライセンスが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
 > [フォーラムエイト(HP)][Forum8HP]<br>
 > [フォーラムエイト(サポートページ)][Forum8Support]
 
@@ -71,7 +71,7 @@ C:
 > [フォーラムエイト(HP)][Forum8HP]<br>
 > [フォーラムエイト(サポートページ)][Forum8Support]
 > [!Important]
-> F8CrowdSimPluginをビルドするにはDelphi 10.4.2が必要です。IDE Patchesは全て適用済みの状態にして下さい。
+> F8CrowdSimPluginをビルドするにはDelphi 10.4.2が必要です。IDE Patchesは全て適用済みの状態にして下さい。詳しくは[こちら][DelphiPatch]をご参照ください。
 
 ソースファイルからF8CrowdSimPluginを生成することができます。<br>
 ソースファイルは[こちら][CrowdSimGitHub]からダウンロード可能です。<br>
@@ -134,8 +134,7 @@ Shadersフォルダ内のファイルを変更した場合は、インストー�
 | - | - | - | - | - |
 | 1| 3D都市モデル(CityGML)<br>[G空間情報センター][geospatial]から取得します。| 全般| 全般| 格納フォルダパス指定|
 
-本システムでは、3D都市モデルの道路、建物、都市構造物モデルの形状（LOD3、LOD4）を活用します。
-また、歩行エリア編集時の参考情報として建築物の形状も利用しています。
+本システムでは、歩行領域生成・編集において3D都市モデルの道路、建築物、都市構造物モデルの形状（LOD3、LOD4）を活用します。
 
 | 地物| 地物型| 属性区分| 属性名| 内容|
 | - | - | - | - | - |
@@ -149,7 +148,8 @@ Shadersフォルダ内のファイルを変更した場合は、インストー�
 [TechnicalReport]: https://www.mlit.go.jp/plateau/news/
 [Forum8HP]: https://www.forum8.co.jp/index.html
 [Forum8Support]: https://www.forum8.co.jp/tech/tech.htm
-[CrowdSimGitHub]: https://github.com/Project-PLATEAU/UC-winRoad-CrowdSim-Plugin
+[CrowdSimGitHub]: https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin
+[DelphiPatch]: https://blogs.embarcadero.com/ja/rad-studio-10-4-2patch-general-patchdelphi-compiler-patch-ja/
 [geospatial]: https://front.geospatial.jp/
 <!--画像-->
 [ApplicationDefaultForm]: ../resources/devMan/applicationDefaultForm.png
