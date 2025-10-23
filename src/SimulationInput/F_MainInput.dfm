@@ -17,7 +17,7 @@ object FrameMainInput: TFrameMainInput
       Top = 3
       Width = 206
       Height = 54
-      Caption = #27497#34892#21487#33021#38936#22495#12434#35373#23450#12377#12427
+      Caption = #27497#34892#12456#12522#12450#12434#35373#23450#12377#12427
       TabOrder = 0
     end
     object BtnCrossWalkSettings: TButton

@@ -50,8 +50,6 @@ type
         procedure btnChangePointClick(Sender: TObject);
         procedure TimerWaitMainProcTimer(Sender: TObject);
         procedure btnPedDetailClick(Sender: TObject);
-        procedure PedDetailbtnOKClick(Sender: TObject);
-        procedure PedDetailbtnCancelClick(Sender: TObject);
         procedure btnDelLabelClick(Sender: TObject);
         procedure btnPopDetailSettingsClick(Sender: TObject);
         procedure btnPopDetailOKClick(Sender: TObject);
@@ -80,7 +78,6 @@ type
         procedure lbOutOnlyClick(Sender: TObject);
         procedure lbPopLblsClick(Sender: TObject);
         private
-            p_DisableTW           : Pointer;
             p_TimerWaitMainProc   : TTimer;
             p_FormNameChanger     : TFormNameChange;
             p_PopOutPointList     : TPopOutPointList;
@@ -92,7 +89,6 @@ type
             p_tmpChangeNodeNum    : TNodeNumArray;
             p_FormPopDetail       : TFormPopDetailSettings;
             p_FormSchedule        : TFormSchedule;
-            p_FormPedDetailSet    : TFormPedestrianDetailSettings;
             p_FormPedSetting      : TFormPedestrianSettings;
             p_FormPedLblSetting   : TFormPedestrianLabelSettings;
             p_PedestrianProfileOptionList : TPedestrianProfileOptionList;
@@ -139,6 +135,7 @@ type
             procedure UpdateListBox;
             procedure UpdateComboBox;
             function  IsExistPoint(const nwkid, ndid: integer; pType: PopOutPointType): boolean;
+            procedure UpdateDestPerList;
         public
             procedure AfterConstruction; override;
             procedure BeforeDestruction; override;
@@ -155,6 +152,9 @@ type
         end;
 
 implementation
+
+uses
+    PedestrianDestinationDistribution;
 
 {$R *.dfm}
 
@@ -1667,115 +1667,85 @@ procedure TFramePedestrianPopOutSidePanel.btnChangePointClick(Sender: TObject);
     end;
 
 procedure TFramePedestrianPopOutSidePanel.btnPedDetailClick(Sender: TObject);
-    var
-        PoiIdx, LblIdx : integer;
-
-    function SetData: boolean;
+    function SetData(const aEditingData: TPedestrianDistinationDistribution; out aLabelName: String): boolean;
         var
             i : integer;
+            PoiIdx, LblIdx : integer;
+            newItem: TPedestrianDistinationDistributionItem;
         begin
         Result := false;
         FindTotalIndex(PoiIdx);
         LblIdx := -1;
         if Assigned(p_FormSchedule) then
-            LblIdx := p_FormSchedule.F_ScheSet.lbPopLbls.ItemIndex
+            begin
+            LblIdx := p_FormSchedule.F_ScheSet.lbPopLbls.ItemIndex;
+            if LblIdx >= 0 then
+                aLabelName := p_FormSchedule.F_ScheSet.lbPopLbls.Items[lblIdx];
+            end
         else if F_PopOutSet.PopSettingsFrame.Visible then
+            begin
             LblIdx := F_PopOutSet.PopSettingsFrame.lbPopLbls.ItemIndex;
+            if LblIdx >= 0 then
+                aLabelName := F_PopOutSet.PopSettingsFrame.lbPopLbls.Items[lblIdx];
+            end;
 
         if LblIdx < 0 then
             Exit;
 
         for i := 0 to POPointList.Data[PoiIdx].DestinationList.Count - 1 do
-            p_FormPedDetailSet.F_PedDetail.F_PedAttr.cbbDest.Items.Add(POPointList.Data[PoiIdx].DestinationList[i]);
-
-        p_FormPedDetailSet.DestPerList := POPointList.Data[PoiIdx].PedestrianData[LblIdx].DestPerList;
+            begin
+            newItem.Name := POPointList.Data[PoiIdx].DestinationList[i];
+            newItem.Rate := POPointList.Data[PoiIdx].PedestrianData[LblIdx].DestPerList[i];
+            aEditingData.AddDistination(newItem);
+            end;
         Result := true;
         end;
 
-    procedure UpdateDestPerList;
+    procedure ApplyData(const aEditingData: TPedestrianDistinationDistribution);
         var
-            i : integer;
+            i, poiIdx, lblIdx : integer;
+            newList: TList<Double>;
         begin
-        FindTotalIndex(PoiIdx);
-        for i := 0 to POPointList.Data[PoiIdx].DestinationList.Count - 1 do
-            p_FormPedDetailSet.F_PedDetail.F_PedAttr.cbbDest.Items.Add(POPointList.Data[PoiIdx].DestinationList[i]);
-
-        if (p_PopOutPointList.Data[PoiIdx].PopRule = _PopbySchedule) and (Assigned(p_FormSchedule)) then
-            begin
-            for i := 0 to p_PopOutPointList.Data[PoiIdx].PedestrianData.Count - 1 do
-                begin
-                p_FormPedDetailSet.DestPerList := POPointList.Data[PoiIdx].PedestrianData[i].DestPerList;
-                p_FormPedDetailSet.UpdateGraph;
-                p_PopOutPointList.Data[PoiIdx].PedestrianData[i].SetNewDestPers(p_FormPedDetailSet.NewDestPerList);
-                end;
-            end
-        else if (p_PopOutPointList.Data[PoiIdx].PopRule = _PopbyInterval) or (p_PopOutPointList.Data[PoiIdx].PopRule = _PopPerHour) then
-            begin
-            for i := 0 to p_PopOutPointList.Data[PoiIdx].PedestrianData.Count - 1 do
-                begin
-                p_FormPedDetailSet.DestPerList := POPointList.Data[PoiIdx].PedestrianData[i].DestPerList;
-                p_FormPedDetailSet.UpdateGraph;
-                p_PopOutPointList.Data[PoiIdx].PedestrianData[i].SetNewDestPers(p_FormPedDetailSet.NewDestPerList);
-                end;
-            end;
-        end;
-
-    begin
-    p_FormPedDetailSet := TFormPedestrianDetailSettings.Create(nil);
-    if (Sender = nil) then
-        begin
-        UpdateDestPerList;
-        FreeAndNil(p_FormPedDetailSet);
-        Exit;
-        end;
-
-    if not SetData then
-        begin
-        FreeAndNil(p_FormPedDetailSet);
-        Exit;
-        end;
-
-    p_DisableTW := DisableTaskWindows(p_FormPedDetailSet.Handle);
-    p_FormPedDetailSet.btnOK.OnClick := PedDetailbtnOKClick;
-    p_FormPedDetailSet.btnCancel.OnClick := PedDetailbtnCancelClick;
-    p_FormPedDetailSet.UpdateGraph;
-    p_FormPedDetailSet.Show;
-    end;
-
-procedure TFramePedestrianPopOutSidePanel.PedDetailbtnOKClick(Sender: TObject);
-
-    procedure ReceiveData;
-        var
-            i, PoiIdx, LblIdx : integer;
-        begin
-        FindTotalIndex(PoiIdx);
-        LblIdx := -1;
+        FindTotalIndex(poiIdx);
+        lblIdx := -1;
         if Assigned(p_FormSchedule) then
-            LblIdx := p_FormSchedule.F_ScheSet.lbPopLbls.ItemIndex
+            lblIdx := p_FormSchedule.F_ScheSet.lbPopLbls.ItemIndex
         else if F_PopOutSet.PopSettingsFrame.Visible then
-            LblIdx := F_PopOutSet.PopSettingsFrame.lbPopLbls.ItemIndex;
+            lblIdx := F_PopOutSet.PopSettingsFrame.lbPopLbls.ItemIndex;
 
-        if p_PopOutPointList.Data[PoiIdx].PopRule = _PopPerHour then
-            p_PopOutPointList.Data[PoiIdx].PedestrianData[LblIdx].SetNewDestPers(p_FormPedDetailSet.NewDestPerList)
-        else
-            begin
-            for i := 0 to p_FormPedDetailSet.NewDestPerList.Count - 1 do
-                p_PopOutPointList.Data[PoiIdx].PedestrianData[LblIdx].SetNewDestPer(i, p_FormPedDetailSet.NewDestPerList[i]);
+        newList := TList<Double>.Create;
+        for i := 0 to aEditingData.ItemCount - 1 do
+            newList.Add(aEditingData[i].Rate);
+
+        case POPointList.Data[poiIdx].PopRule of
+            _PopPerHour:
+                POPointList.Data[poiIdx].PedestrianData[lblIdx].SetNewDestPers(newList);
+            else
+                begin
+                for i := 0 to newList.Count - 1 do
+                    p_PopOutPointList.Data[poiIdx].PedestrianData[lblIdx].SetNewDestPer(i, newList[i]);
+                end;
             end;
         end;
-
+    var
+        labelName: String;
+        editForm: TFormPedestrianDetailSettings;
+        editingData: TPedestrianDistinationDistribution;
     begin
-    ReceiveData;
-    EnableTaskWindows(p_DisableTW);
-    p_FormPedDetailSet.Close;
-    FreeAndNil(p_FormPedDetailSet);
-    end;
+    editForm := TFormPedestrianDetailSettings.Create(nil);
+    editingData := TPedestrianDistinationDistribution.Create;
+    try
+        if setData(editingData, labelName) then
+            begin
+            editForm.ChangePedestrianLabel(labelName, editingData);
 
-procedure TFramePedestrianPopOutSidePanel.PedDetailbtnCancelClick(Sender: TObject);
-    begin
-    EnableTaskWindows(p_DisableTW);
-    p_FormPedDetailSet.Close;
-    FreeAndNil(p_FormPedDetailSet);
+            if editForm.ShowModal = mrOk then
+                ApplyData(editingData);
+            end;
+    finally
+        FreeAndNil(editForm);
+        FreeAndNil(editingData);
+        end;
     end;
 
 procedure TFramePedestrianPopOutSidePanel.btnAddPopLabelClick(Sender: TObject);
@@ -2130,7 +2100,7 @@ procedure TFramePedestrianPopOutSidePanel.btnPopScheSetOKClick(Sender: TObject);
     FindTotalIndex(PoiIdx);
     if ReceiveScheduleData(POPointList.Data[PoiIdx].PopSchedule) then
         begin
-        btnPedDetailClick(nil);
+        UpdateDestPerList;
         p_FormSchedule.Close;
         FreeAndNil(p_FormSchedule);
         end;
@@ -2281,6 +2251,40 @@ function TFramePedestrianPopOutSidePanel.IsExistPoint(const nwkid, ndid: integer
             Result := true;
             Exit;
             end;
+        end;
+    end;
+
+procedure TFramePedestrianPopOutSidePanel.UpdateDestPerList;
+    procedure DoUpdateDestPerList(const aPoiIdx: Integer);
+        var
+            i, j: Integer;
+            newList: TList<Double>;
+        begin
+        for i := 0 to p_PopOutPointList.Data[aPoiIdx].PedestrianData.Count - 1 do
+            begin
+            newList := TList<Double>.Create;
+            for j := 0 to POPointList.Data[aPoiIdx].PedestrianData[i].DestPerList.Count -1 do
+                newList.Add(POPointList.Data[aPoiIdx].PedestrianData[i].DestPerList[j]);
+
+            p_PopOutPointList.Data[aPoiIdx].PedestrianData[i].SetNewDestPers(newList);
+            end;
+        end;
+    var
+        poiIdx: Integer;
+    begin
+    // âÊñ Çï¬Ç∂ÇΩéûÇÃïsãÔçáëŒçÙ
+    FindTotalIndex(poiIdx);
+    case p_PopOutPointList.Data[poiIdx].PopRule of
+        _PopbySchedule:
+            begin
+            if Assigned(p_FormSchedule) then
+                DoUpdateDestPerList(poiIdx);
+            end;
+        _PopbyInterval,
+        _PopPerHour:
+            DoUpdateDestPerList(poiIdx);
+        else
+            ;
         end;
     end;
 
@@ -2511,7 +2515,7 @@ procedure TFramePedestrianPopOutSidePanel.SetPopOutSettingsData;
     for i := 0 to F_PopOutSet.ListBoxInOutPoints.Items.Count - 1 do
         begin
         F_PopOutSet.ListBoxInOutPoints.ItemIndex := i;
-        btnPedDetailClick(nil);
+        UpdateDestPerList;
         end;
 
     for i := 0 to POPointList.Data.Count - 1 do

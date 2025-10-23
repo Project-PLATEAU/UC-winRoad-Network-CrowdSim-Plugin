@@ -48,7 +48,7 @@ object FrameCreateSimulationArea: TFrameCreateSimulationArea
         Margins.Left = 10
         Margins.Right = 10
         Align = alBottom
-        Caption = #27497#34892#21487#33021#38936#22495#12434#29983#25104#12377#12427
+        Caption = #27497#34892#12456#12522#12450#12434#29983#25104#12377#12427
         TabOrder = 1
       end
       object GroupBoxViewOption: TGroupBox
@@ -103,7 +103,7 @@ object FrameCreateSimulationArea: TFrameCreateSimulationArea
           Margins.Right = 0
           Margins.Bottom = 7
           Align = alLeft
-          Caption = #29983#25104#12375#12383#27497#34892#21487#33021#38936#22495#12434#21487#35222#21270#12377#12427
+          Caption = #29983#25104#12375#12383#27497#34892#12456#12522#12450#12434#21487#35222#21270#12377#12427
           TabOrder = 2
         end
       end
@@ -166,17 +166,17 @@ object FrameCreateSimulationArea: TFrameCreateSimulationArea
         AlignWithMargins = True
         Left = 12
         Top = 3
-        Width = 124
+        Width = 125
         Height = 17
         Margins.Left = 12
         Margins.Bottom = 1
         Align = alLeft
-        Caption = #27497#34892#38936#22495#12398#39640#12373#12458#12501#12475#12483#12488':'
+        Caption = #27497#34892#12456#12522#12450#12398#39640#12373#12458#12501#12475#12483#12488':'
         ExplicitHeight = 13
       end
       object PanelMapHeightOffsetEdit: TPanel
         AlignWithMargins = True
-        Left = 145
+        Left = 146
         Top = 0
         Width = 185
         Height = 21
@@ -187,6 +187,7 @@ object FrameCreateSimulationArea: TFrameCreateSimulationArea
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitLeft = 145
       end
     end
     object ButtonCreateNewNetwork: TButton
@@ -297,7 +298,7 @@ object FrameCreateSimulationArea: TFrameCreateSimulationArea
       Margins.Right = 0
       Margins.Bottom = 6
       Align = alTop
-      Caption = #27497#34892#38936#22495#12398#32232#38598
+      Caption = #27497#34892#12456#12522#12450#12398#32232#38598
       Padding.Left = 6
       Padding.Top = 3
       Padding.Right = 6

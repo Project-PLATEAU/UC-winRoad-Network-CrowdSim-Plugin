@@ -51,7 +51,6 @@ requires
 
 contains
   F8CrowdSimPluginMain in 'F8CrowdSimPluginMain.pas',
-  AgentSettings in 'PeopleFlowSimulation\Menge\MengeUtils\AgentSettings.pas',
   MapRenderer in 'PeopleFlowSimulation\PedestrianMap\MapRenderer.pas',
   PedestrianCell in 'PeopleFlowSimulation\PedestrianMap\PedestrianCell.pas',
   PedestrianCellGroup in 'PeopleFlowSimulation\PedestrianMap\PedestrianCellGroup.pas',
@@ -66,8 +65,6 @@ contains
   PedestrianMapUnificator in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUnificator.pas',
   PedestrianMapUser in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUser.pas',
   CrowdSimUtils in 'PeopleFlowSimulation\CrowdSimUtils.pas',
-  ContourDrawerForm in 'PeopleFlowAnalysis\Contour\ContourDrawerForm.pas' {FormDrawContour},
-  ContourGenerator in 'PeopleFlowAnalysis\Contour\ContourGenerator.pas',
   HeatMapDrawerForm in 'PeopleFlowAnalysis\HeatMap\HeatMapDrawerForm.pas' {FormDrawHeatMap},
   HeatMapGenerator in 'PeopleFlowAnalysis\HeatMap\HeatMapGenerator.pas',
   F8CrowdSimController in 'PlayerForm\F8CrowdSimController.pas',
@@ -88,7 +85,6 @@ contains
   F_TimeController in 'PlayerForm\PlayerFormFrame\F_TimeController.pas' {FrameControlTime: TFrame},
   CrowdSimPlayerForm in 'PlayerForm\CrowdSimPlayerForm.pas' {FormCrowdSimPlayer},
   CrowdSimExportsForm in 'PeopleFlowAnalysis\ExportsForm\CrowdSimExportsForm.pas' {FormCrowdSimExports},
-  F_ContourSettings in 'PeopleFlowAnalysis\ExportsForm\F_ContourSettings.pas' {FrameContourSettings: TFrame},
   F_CrossSectionGraph in 'PeopleFlowAnalysis\ExportsForm\F_CrossSectionGraph.pas' {FrameCrossSectionGraph: TFrame},
   F_HeatMapSettings in 'PeopleFlowAnalysis\ExportsForm\F_HeatMapSettings.pas' {FrameHeatMapSettings: TFrame},
   CellID in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\CellID.pas',
@@ -98,7 +94,6 @@ contains
   PedestrianUtil in 'PeopleFlowSimulation\PedestrianMap\PedestrianMapUtil\PedestrianUtil.pas',
   CrowdSimSidePanel in 'PlayerForm\SidePanel\CrowdSimSidePanel.pas',
   CrowdSimSidePanelBaseFrame in 'PlayerForm\SidePanel\CrowdSimSidePanelBaseFrame.pas' {FrameCrowdSimSidePanel: TFrame},
-  F_AgentAttributes in 'SimulationInput\F_AgentAttributes.pas' {FrameAgentAttributes: TFrame},
   F_CreateSimulationArea in 'SimulationInput\F_CreateSimulationArea.pas' {FrameCreateSimulationArea: TFrame},
   F_CrossSectionSettings in 'SimulationInput\F_CrossSectionSettings.pas' {FrameCrossSectionSettings: TFrame},
   F_CrossWalkSettings in 'SimulationInput\F_CrossWalkSettings.pas' {FrameCrossWalkSettings: TFrame},
@@ -170,7 +165,9 @@ contains
   ODTripResultExport in 'PeopleFlowAnalysis\ODTrip\ODTripResultExport.pas',
   F_ODTripGraph in 'PeopleFlowAnalysis\ExportsForm\F_ODTripGraph.pas' {FrameODTripGraph: TFrame},
   TimeLineSeriesSupport in 'PeopleFlowAnalysis\ExportsForm\TimeLineSeriesSupport.pas',
-  CrowdSimCityGMLImporterModel in 'Importer\CityGML\CrowdSimCityGMLImporterModel.pas';
+  CrowdSimCityGMLImporterModel in 'Importer\CityGML\CrowdSimCityGMLImporterModel.pas',
+  AgentSettings in 'PeopleFlowSimulation\AgentSettings.pas',
+  PedestrianDestinationDistribution in 'SimulationInput\Manager\PedestrianDestinationDistribution.pas';
 
 end.
 

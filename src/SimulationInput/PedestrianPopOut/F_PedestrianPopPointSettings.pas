@@ -18,7 +18,6 @@ uses
     PluginCore,
     F8GLUtils,
     F_PedestrianPopbyInterval,
-    F_AgentAttributes,
     F_PedestrianOutbyInterval,
     F_PopPerHour,
     F_ScheduleButton,

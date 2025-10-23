@@ -139,8 +139,8 @@
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Debugger_RunParams>-MasterBundle</Debugger_RunParams>
-        <Debugger_HostApplication>D:\FORUM8\UCwinRoad 17.2.3 64bit Customized\UCwinRoad.exe</Debugger_HostApplication>
+        <Debugger_HostApplication>C:\UCwinRoad 17.2.3 64bit Customized\UCwinRoad.exe</Debugger_HostApplication>
+        <DCC_BplOutput>C:\UCwinRoad Data17.2\Plugins</DCC_BplOutput>
     </PropertyGroup>
     <ProjectExtensions>
         <Borland.Personality>Delphi.Personality.12</Borland.Personality>
@@ -1029,7 +1029,6 @@
         <DCCReference Include="tee.dcp"/>
         <DCCReference Include="vcldb.dcp"/>
         <DCCReference Include="F8CrowdSimPluginMain.pas"/>
-        <DCCReference Include="PeopleFlowSimulation\Menge\MengeUtils\AgentSettings.pas"/>
         <DCCReference Include="PeopleFlowSimulation\PedestrianMap\MapRenderer.pas"/>
         <DCCReference Include="PeopleFlowSimulation\PedestrianMap\PedestrianCell.pas"/>
         <DCCReference Include="PeopleFlowSimulation\PedestrianMap\PedestrianCellGroup.pas"/>
@@ -1044,11 +1043,6 @@
         <DCCReference Include="PeopleFlowSimulation\PedestrianMap\PedestrianMapUnificator.pas"/>
         <DCCReference Include="PeopleFlowSimulation\PedestrianMap\PedestrianMapUser.pas"/>
         <DCCReference Include="PeopleFlowSimulation\CrowdSimUtils.pas"/>
-        <DCCReference Include="PeopleFlowAnalysis\Contour\ContourDrawerForm.pas">
-            <Form>FormDrawContour</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="PeopleFlowAnalysis\Contour\ContourGenerator.pas"/>
         <DCCReference Include="PeopleFlowAnalysis\HeatMap\HeatMapDrawerForm.pas">
             <Form>FormDrawHeatMap</Form>
             <FormType>dfm</FormType>
@@ -1085,11 +1079,6 @@
             <Form>FormCrowdSimExports</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="PeopleFlowAnalysis\ExportsForm\F_ContourSettings.pas">
-            <Form>FrameContourSettings</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="PeopleFlowAnalysis\ExportsForm\F_CrossSectionGraph.pas">
             <Form>FrameCrossSectionGraph</Form>
             <FormType>dfm</FormType>
@@ -1108,11 +1097,6 @@
         <DCCReference Include="PlayerForm\SidePanel\CrowdSimSidePanel.pas"/>
         <DCCReference Include="PlayerForm\SidePanel\CrowdSimSidePanelBaseFrame.pas">
             <Form>FrameCrowdSimSidePanel</Form>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="SimulationInput\F_AgentAttributes.pas">
-            <Form>FrameAgentAttributes</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="SimulationInput\F_CreateSimulationArea.pas">
@@ -1310,6 +1294,8 @@
         </DCCReference>
         <DCCReference Include="PeopleFlowAnalysis\ExportsForm\TimeLineSeriesSupport.pas"/>
         <DCCReference Include="Importer\CityGML\CrowdSimCityGMLImporterModel.pas"/>
+        <DCCReference Include="PeopleFlowSimulation\AgentSettings.pas"/>
+        <DCCReference Include="SimulationInput\Manager\PedestrianDestinationDistribution.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
