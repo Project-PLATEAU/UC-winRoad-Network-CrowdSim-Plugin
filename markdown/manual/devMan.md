@@ -138,13 +138,13 @@ Shadersフォルダ内のファイルを変更した場合は、インストー�
 
 > [!TIP]
 > 建築物LOD1～3を3次元空間上に配置、表示することは可能ですが、歩行エリア生成には利用できません。
-> これは、建築物はLOD4以降に属する部屋(bldg:Room)の情報を使用しているためです。
+> これは、建築物LOD4で定義されている部屋(bldg:Room)の情報を使用しているためです。
 
 | 地物| 地物型| 属性区分| 属性名| 内容|
 | - | - | - | - | - |
 | 道路LOD1 |tran:Road|空間属性|tran:lod1MultiSurface|道路のLOD1の形状|
 | 道路LOD3|tran:Road|空間属性|tran:lod3MultiSurface|道路のLOD3の形状|
-| 建築物LOD4に属する部屋|bldg:Buildingに属するbldg:Room|空間属性|bldg:lod4Solid|建築物のLOD4に属する部屋の形状|
+| 部屋(建築物LOD4の子要素)|bldg:Room|空間属性|bldg:lod4Solid|部屋の形状|
 | 都市設備LOD3 |frn:CityFurniture|空間属性|frn:lod3Geometry|都市設備の形状|
 
 <!---GitHubページなどは確定次第修正します-->
