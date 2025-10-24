@@ -266,8 +266,8 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
 <p>本システムでは、歩行領域生成・編集において3D都市モデルの道路、建築物、都市設備モデルの形状を活用します。</p>
 <div class="TIP">
 <h5>Tip</h5>
-<p>建築物LOD1～3を3次元空間上に配置、表示することは可能ですが、歩行領域生成には利用できません。
-これは、建築物はLOD4以降に含まれる部屋の情報を使用しているためです。</p>
+<p>建築物LOD1～3を3次元空間上に配置、表示することは可能ですが、歩行エリア生成には利用できません。
+これは、建築物はLOD4以降に属する部屋(bldg:Room)の情報を使用しているためです。</p>
 </div>
 <table>
 <thead>
@@ -288,18 +288,18 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
 <td>道路のLOD1の形状</td>
 </tr>
 <tr>
-<td>道路LOD3. 3</td>
+<td>道路LOD3</td>
 <td>tran:Road</td>
 <td>空間属性</td>
 <td>tran:lod3MultiSurface</td>
 <td>道路のLOD3の形状</td>
 </tr>
 <tr>
-<td>建築物LOD4</td>
-<td>bldg:Building</td>
+<td>建築物LOD4に属する部屋</td>
+<td>bldg:Buildingに属するbldg:Room</td>
 <td>空間属性</td>
 <td>bldg:lod4Solid</td>
-<td>建築物のLOD4の床面の形状</td>
+<td>建築物のLOD4に属する部屋の形状</td>
 </tr>
 <tr>
 <td>都市設備LOD3</td>
