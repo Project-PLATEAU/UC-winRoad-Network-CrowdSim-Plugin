@@ -4,6 +4,9 @@
 
 本書は、輸送計画検討に向けた人流シミュレーションプラグイン(UC-win/Roadプラグイン)の利用環境構築手順について記載しています。
 
+- 本システムを単に実行したい場合:[インストール手順](#3-インストール手順)をご確認ください
+- 本システムをベースに開発したい場合:[ビルド手順](#4-ビルド手順)をご確認ください
+
 > [!TIP]
 > 本システムの構成や仕様の詳細については技術検証レポートも参考にしてください(**技術検証レポート公開後、リンクを追記します**)。
 
@@ -28,24 +31,24 @@
 > [フォーラムエイト(HP)][Forum8HP]<br>
 > [フォーラムエイト(サポートページ)][Forum8Support]
 
-1. [GitHubページ][CrowdSimGitHub]からF8CrowdSimPlugin.bplをダウンロードします。
-2. [GitHubページ][CrowdSimGitHub]からソースファイルをダウンロードします。
-3. WindowsのエクスプローラでUC-win/Roadのデータディレクトリを開きます。
+1. [GitHubページ][CrowdSimGitHub]から最新のRelease版をダウンロードします。
+![GitHubリリース画面][GitHubRelease]
+2. WindowsのエクスプローラでUC-win/Roadのデータディレクトリを開きます。
     > [!TIP]
     > データディレクトリの場所は、UC-win/Roadで確認できます。<br>
     > UC-win/Roadを起動して、メイン画面上部の「ファイル」タブ>>「アプリケーションオプション」>>「デフォルト設定」を押下します。<br>
     > 「アプリケーションデフォルト」画面が開くので、画面左側のタブから「フォルダ、ファイル関連」を選択します。「データディレクトリ」項目に記載されている場所を確認します。<br>
     > ![アプリケーションデフォルト画面][ApplicationDefaultForm]
-4. データディレクトリ直下の「Plugins」フォルダを開きます(もし「Plugins」フォルダが無ければ作成してください)。![データディレクトリ_Plugins][DataDirectory_Plugins]
-5. 「Plugins」フォルダ直下にダウンロードしたF8CrowdSimPlugin.bplを設置します。
-6. WindowsのエクスプローラでUC-win/Roadの実行ファイル(UCwinRoad.exe)があるフォルダを開きます。
+3. データディレクトリ直下の「Plugins」フォルダを開きます(もし「Plugins」フォルダが無ければ作成してください)。![データディレクトリ_Plugins][DataDirectory_Plugins]
+4. 「Plugins」フォルダ直下にダウンロードしたF8CrowdSimPlugin.bplを設置します。
+5. WindowsのエクスプローラでUC-win/Roadの実行ファイル(UCwinRoad.exe)があるフォルダを開きます。
     > [!TIP]
     > UC-win/Roadをインストールすると、デフォルト設定ではデスクトップにショートカットが作成されます。<br>
     > ショートカットを右クリックし、「ファイルの場所を開く」を選択するとUC-win/Roadの実行ファイル(UCwinRoad.exe)があるフォルダを開けます。<br>
     > ![UCwinRoad_ショートカット][UCwinRoad_Shortcut]
-7. Shadersフォルダを開きます。
-8. Pluginsフォルダを開きます。
-9. ダウンロードしたソースファイルのsrc\F8CrowdSimPlugin\Shadersフォルダ内のCrowdSimMeshフォルダを前項のPluginsフォルダにコピーします。
+6. Shadersフォルダを開きます。
+7. Pluginsフォルダを開きます。
+8. ダウンロードしたソースファイルのsrc\F8CrowdSimPlugin\Shadersフォルダ内のCrowdSimMeshフォルダを前項のPluginsフォルダにコピーします。
 
 UC-win/Roadをデフォルト設定でインストールし、手順どおりにインストールを進めた場合、最終的にフォルダ構成は次のようになります。
 
@@ -121,7 +124,7 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
    1. プロジェクト画面で「F8CrowdSimPlugin.bpl」を右クリックし、「オプション」を選択します。
    2. 「ビルド」-「Delphiコンパイラ」を開きます。
    3. 「ターゲット」を「すべての構成 - Windows64ビット プラットフォーム」に変更します。
-   4. 「パッケージの出力ディレクトリ」が「(UC-wi/Roadのデータディレクトリ)\Plugins」になってない場合は変更して下さい。![Delphiプロジェクトオプション][delphiProjectOptionForm]
+   4. 「パッケージの出力ディレクトリ」が「(UC-win/Roadのデータディレクトリ)\Plugins」になってない場合は変更して下さい。![Delphiプロジェクトオプション][delphiProjectOptionForm]
 4. ビルド構成を「Release」、ターゲットプラットフォームを「Windows 64ビット」にしてビルドします。![F8CrowdSimPluginビルド時の構成][buildSetting_F8CrowdSimPlugin]
 5. ビルドに成功すると、前項で確認した「パッケージの出力ディレクトリ」の場所に「F8CrowdSim.bpl」が出力されます。
 
@@ -166,3 +169,4 @@ Shadersフォルダ内のファイルを変更した場合は、インストー�
 [buildSetting_CrowdSim]: ../resources/devMan/BuildSettings_FrowdSim.png
 [DataDirectory_Plugins]: ../resources/devMan/RoadData_Plugins.png
 [UCwinRoad_Shortcut]: ../resources/devMan/UCwinRoad_shortcut.png
+[GitHubRelease]: ../resources/devMan/GitHubPage_Release.png
