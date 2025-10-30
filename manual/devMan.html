@@ -81,13 +81,15 @@
 
 <h2 id="1-本書について">1 本書について</h2>
 <p>本書は、輸送計画検討に向けた人流シミュレーションプラグイン(UC-win/Roadプラグイン)の利用環境構築手順について記載しています。</p>
-<ul>
-<li>本システムを単に実行したい場合:<a href="#3-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">インストール手順</a>をご確認ください</li>
-<li>本システムをベースに開発したい場合:<a href="#4-%E3%83%93%E3%83%AB%E3%83%89%E6%89%8B%E9%A0%86">ビルド手順</a>をご確認ください</li>
-</ul>
-<div class="TIP">
-<h5>Tip</h5>
+<div class="NOTE">
+<h5>Note</h5>
 <p>本システムの構成や仕様の詳細については技術検証レポートも参考にしてください(<strong>技術検証レポート公開後、リンクを追記します</strong>)。</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>本システムを実行するにはUC-win/Roadおよびそのライセンスが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
+<a href="https://www.forum8.co.jp/index.html">フォーラムエイト(HP)</a><br>
+<a href="https://www.forum8.co.jp/tech/tech.htm">フォーラムエイト(サポートページ)</a></p>
 </div>
 <h2 id="2-動作環境">2 動作環境</h2>
 <p>本システムの動作環境は以下のとおりです。</p>
@@ -137,30 +139,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3-インストール手順">3 インストール手順</h2>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>本システムを実行するにはUC-win/Roadのライセンスが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
-<a href="https://www.forum8.co.jp/index.html">フォーラムエイト(HP)</a><br>
-<a href="https://www.forum8.co.jp/tech/tech.htm">フォーラムエイト(サポートページ)</a></p>
-</div>
+<h2 id="3-セットアップ">3 セットアップ</h2>
+<h3 id="共通手順">共通手順</h3>
 <ol>
-<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">GitHubページ</a>から最新のRelease版をダウンロードします。
-<img src="../resources/devMan/GitHubPage_Release.png" alt="GitHubリリース画面"></li>
-<li>WindowsのエクスプローラでUC-win/Roadのデータディレクトリを開きます。
-<div class="TIP">
-<h5>Tip</h5>
-<p>データディレクトリの場所は、UC-win/Roadで確認できます。<br>
-UC-win/Roadを起動して、メイン画面上部の「ファイル」タブ&gt;&gt;「アプリケーションオプション」&gt;&gt;「デフォルト設定」を押下します。<br>
-「アプリケーションデフォルト」画面が開くので、画面左側のタブから「フォルダ、ファイル関連」を選択します。「データディレクトリ」項目に記載されている場所を確認します。<br>
-<img src="../resources/devMan/applicationDefaultForm.png" alt="アプリケーションデフォルト画面"></p>
-</div>
-</li>
-<li>データディレクトリ直下の「Plugins」フォルダを開きます(もし「Plugins」フォルダが無ければ作成してください)。<img src="../resources/devMan/RoadData_Plugins.png" alt="データディレクトリ_Plugins"></li>
-<li>「Plugins」フォルダ直下にダウンロードしたF8CrowdSimPlugin.bplを設置します。</li>
+<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">GitHubページ</a>からソースコードをダウンロードします。</li>
 <li>WindowsのエクスプローラでUC-win/Roadの実行ファイル(UCwinRoad.exe)があるフォルダを開きます。
-<div class="TIP">
-<h5>Tip</h5>
+<div class="NOTE">
+<h5>Note</h5>
 <p>UC-win/Roadをインストールすると、デフォルト設定ではデスクトップにショートカットが作成されます。<br>
 ショートカットを右クリックし、「ファイルの場所を開く」を選択するとUC-win/Roadの実行ファイル(UCwinRoad.exe)があるフォルダを開けます。<br>
 <img src="../resources/devMan/UCwinRoad_shortcut.png" alt="UCwinRoad_ショートカット"></p>
@@ -170,25 +155,38 @@ UC-win/Roadを起動して、メイン画面上部の「ファイル」タブ&gt
 <li>Pluginsフォルダを開きます。</li>
 <li>ダウンロードしたソースファイルのsrc\F8CrowdSimPlugin\Shadersフォルダ内のCrowdSimMeshフォルダを前項のPluginsフォルダにコピーします。</li>
 </ol>
-<p>UC-win/Roadをデフォルト設定でインストールし、手順どおりにインストールを進めた場合、最終的にフォルダ構成は次のようになります。</p>
-<pre><code class="lang-bash">C:
-├─Program Files
-│  └─FORUM8
-│      └─UCwinRoad 17.2 &lt;------ UCwin/Roadの実行ファイルがあるフォルダ
-│          └─shaders
-│              └─Plugins
-│                  └─CrowdSimMesh &lt;------ ダウンロードしたフォルダを設置
-└─UCwinRoad Data 17.2 &lt;------ データディレクトリ
-│  └─Plugins
-│      └─F8CrowdSimPlugin.bpl &lt;------ ダウンロードしたbplを設置
-</code></pre>
-<h2 id="4-ビルド手順">4 ビルド手順</h2>
-<div class="TIP">
-<h5>Tip</h5>
-<p>本章ではOSSのカスタマイズ等を視野に入れた開発者向けの手順を説明しています。
-本システムをそのまま利用する場合は<a href="#5-%E6%BA%96%E5%82%99%E7%89%A9%E4%B8%80%E8%A6%A7">準備物一覧</a>にお進みください。</p>
+<p>次に、目的に合わせて該当する手順を実行します。</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_useOnly" role="tab" aria-controls="tabpanel_1_useOnly" data-tab="useOnly" tabindex="0" aria-selected="true">本システムを利用したい(開発はしない)</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_develop" role="tab" aria-controls="tabpanel_1_develop" data-tab="develop" tabindex="-1">本システムを元に開発したい</a>
+</li>
+</ul>
+<section id="tabpanel_1_useOnly" role="tabpanel" data-tab="useOnly">
+
+<ol>
+<li><a href="https://github.com/Project-PLATEAU/UC-winRoad-Network-CrowdSim-Plugin">GitHubページ</a>から最新のRelease版をダウンロードします。
+<img src="../resources/devMan/GitHubPage_Release.png" alt="GitHubリリース画面"></li>
+<li>WindowsのエクスプローラでUC-win/Roadのデータディレクトリを開きます。
+<div class="NOTE">
+<h5>Note</h5>
+<p>データディレクトリの場所は、UC-win/Roadで確認できます。<br>
+UC-win/Roadを起動して、メイン画面上部の「ファイル」タブ&gt;&gt;「アプリケーションオプション」&gt;&gt;「デフォルト設定」を押下します。<br>
+「アプリケーションデフォルト」画面が開くので、画面左側のタブから「フォルダ、ファイル関連」を選択します。「データディレクトリ」項目に記載されている場所を確認します。<br>
+<img src="../resources/devMan/applicationDefaultForm.png" alt="アプリケーションデフォルト画面"></p>
 </div>
-<h3 id="4-1-f8crowdsimplugin">4-1 F8CrowdSimPlugin</h3>
+</li>
+<li>データディレクトリ直下の「Plugins」フォルダを開きます(もし「Plugins」フォルダが無ければ作成してください)。
+<img src="../resources/devMan/RoadData_Plugins.png" alt="データディレクトリ_Plugins"></li>
+<li>「Plugins」フォルダ直下にダウンロードしたF8CrowdSimPlugin.bplを設置します。</li>
+</ol>
+</section>
+<section id="tabpanel_1_develop" role="tabpanel" data-tab="develop" aria-hidden="true" hidden="hidden">
+
+<p>ソースコードからプラグインをビルドして利用します。</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>F8CrowdSimPluginをビルドするにはUC-win/Road SDKが必要です。詳細は株式会社フォーラムエイトにお問い合わせ下さい。<br>
@@ -241,15 +239,35 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
 <li>プロジェクト画面で「F8CrowdSimPlugin.bpl」を右クリックし、「オプション」を選択します。</li>
 <li>「ビルド」-「Delphiコンパイラ」を開きます。</li>
 <li>「ターゲット」を「すべての構成 - Windows64ビット プラットフォーム」に変更します。</li>
-<li>「パッケージの出力ディレクトリ」が「(UC-win/Roadのデータディレクトリ)\Plugins」になってない場合は変更して下さい。<img src="../resources/devMan/delphiProjectOption.png" alt="Delphiプロジェクトオプション"></li>
+<li>「パッケージの出力ディレクトリ」が「(UC-win/Roadのデータディレクトリ)\Plugins」になってない場合は変更して下さい。
+<img src="../resources/devMan/delphiProjectOption.png" alt="Delphiプロジェクトオプション"></li>
 </ol>
 </li>
-<li>ビルド構成を「Release」、ターゲットプラットフォームを「Windows 64ビット」にしてビルドします。<img src="../resources/devMan/BuildSettings_Plugin.png" alt="F8CrowdSimPluginビルド時の構成"></li>
+<li>ビルド構成を「Release」、ターゲットプラットフォームを「Windows 64ビット」にします。
+<img src="../resources/devMan/BuildSettings_Plugin.png" alt="F8CrowdSimPluginビルド時の構成"></li>
+<li>ビルドします。</li>
 <li>ビルドに成功すると、前項で確認した「パッケージの出力ディレクトリ」の場所に「F8CrowdSim.bpl」が出力されます。</li>
 </ol>
-<h3 id="4-2-シェーダファイルの更新">4-2 シェーダファイルの更新</h3>
+<div class="NOTE">
+<h5>Note</h5>
 <p>Shadersフォルダ内のファイルを変更した場合は、インストール手順を参考にCrowdSimMeshフォルダを更新して下さい。</p>
-<h2 id="5-準備物一覧">5 準備物一覧</h2>
+</div>
+</section>
+</div>
+<h3 id="セットアップ完了時のプログラム構成">セットアップ完了時のプログラム構成</h3>
+<p>UC-win/Roadをデフォルト設定でインストールし、上記手順でセットアップ完了した場合、最終的にフォルダ構成は次のようになります。</p>
+<pre><code class="lang-bash">C:
+├─Program Files
+│  └─FORUM8
+│      └─UCwinRoad 17.2 &lt;------ UCwin/Roadの実行ファイルがあるフォルダ
+│          └─shaders
+│              └─Plugins
+│                  └─CrowdSimMesh &lt;------ ダウンロードしたフォルダを設置
+└─UCwinRoad Data 17.2 &lt;------ データディレクトリ
+│  └─Plugins
+│      └─F8CrowdSimPlugin.bpl &lt;------ ダウンロードしたbplを設置
+</code></pre>
+<h2 id="4-入力するデータ">4 入力するデータ</h2>
 <p>アプリケーションを利用するために以下のデータを入手します。<br>
 データの入力方法については操作マニュアルをご参照下さい。</p>
 <table>
@@ -277,6 +295,10 @@ F8CrowdSimPluginフォルダのフォルダ構成は次のようになってい�
 <h5>Tip</h5>
 <p>建築物LOD1～3を3次元空間上に配置、表示することは可能ですが、歩行エリア生成には利用できません。
 これは、建築物LOD4で定義されている部屋(bldg:Room)の情報を使用しているためです。</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>広場モデル等、道路モデルと同じ仕様のモデルについては道路モデルと同様の扱いとなります。</p>
 </div>
 <table>
 <thead>
