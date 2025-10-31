@@ -42,7 +42,7 @@
 
 次に、目的に合わせて該当する手順を実行します。
 
-# [利用者向け設定手順(開発はしない)](#tab/useOnly)
+# [利用者向け設定手順](#tab/useOnly)
 
 1. [GitHubページ][CrowdSimGitHub]から最新のRelease版をダウンロードします。
 ![GitHubリリース画面][GitHubRelease]
