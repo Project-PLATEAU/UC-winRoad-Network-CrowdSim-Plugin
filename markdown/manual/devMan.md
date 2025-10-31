@@ -42,7 +42,7 @@
 
 次に、目的に合わせて該当する手順を実行します。
 
-# [本システムを利用したい(開発はしない)](#tab/useOnly)
+# [利用者向け設定手順(開発はしない)](#tab/useOnly)
 
 1. [GitHubページ][CrowdSimGitHub]から最新のRelease版をダウンロードします。
 ![GitHubリリース画面][GitHubRelease]
@@ -56,7 +56,7 @@
 ![データディレクトリ_Plugins][DataDirectory_Plugins]
 4. 「Plugins」フォルダ直下にダウンロードしたF8CrowdSimPlugin.bplを設置します。
 
-# [本システムを元に開発したい](#tab/develop)
+# [開発者向け設定手順](#tab/develop)
 
 ソースコードからプラグインをビルドして利用します。
 
