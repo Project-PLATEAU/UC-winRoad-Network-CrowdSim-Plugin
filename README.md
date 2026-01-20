@@ -18,7 +18,7 @@
 再現性を高めるための具体的な実装機能として、シミュレーション領域の自動生成、歩行者の発生・退出地点の設定、バス待機列の制御を組み込んだ条件を設定する機能等が存在し、これにより計画策定を行う方が容易に複数シナリオでの人流シミュレーションを実行できます。
 また、これらのシミュレーション結果を定量的な視点も含めて詳細に分析するために特定地点、特定時刻での断面交通流やバス乗降結果、待機列形成結果等のアウトプット機能も具備しています。
 本システムは、イベント計画・運営団体やその関係者向けのGUIを備えたオープンソースソフトウェアとして開発されています。
-本システムの詳細については[技術検証レポート](https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0131_ver01.pdf)を参照してください。
+本システムの詳細については[技術検証レポート](https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0131_ver02.pdf)を参照してください。
 
 ## 3. 利用手順 <!-- 下記の通り、GitHub Pagesへリンクを記載ください。URLはアクセンチュアにて設定しますので、サンプルそのままでOKです。 -->
 本システムの構築手順及び利用手順については[利用チュートリアル](https://project-plateau.github.io/UC-winRoad-Network-CrowdSim-Plugin/)を参照してください。
@@ -97,5 +97,5 @@
 - 本リポジトリの利用により生じた損失及び損害等について、国土交通省はいかなる責任も負わないものとします。
 
 ## 10. 参考資料 <!-- 技術検証レポートのURLはアクセンチュアにて記載します。 -->
-- 技術検証レポート: https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0131_ver01.pdf
+- 技術検証レポート: https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0131_ver02.pdf
 - PLATEAU WebサイトのUse caseページ「大規模イベントの輸送計画策定に向けた人流シミュレータの開発」: https://www.mlit.go.jp/plateau/use-case/uc25-07/
